@@ -1,17 +1,18 @@
 #**Traffic Sign Recognition** 
 
-##Writeup Template
-
-###You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
+##Writeup
 
 ---
 
 **Build a Traffic Sign Recognition Project**
 
 The goals / steps of this project are the following:
-* Load the data set (see below for links to the project data set)
-* Explore, summarize and visualize the data set
-* Design, train and test a model architecture
+* **Load the data set (see below for links to the project data set)**
+I downloaded the zipped data and unpacked it. The paths to the training, validation and test sets were set relatively.
+* **Explore, summarize and visualize the data set**
+The length of the training and test data was determined by the length of the 4D arrays (1st dimension). The image shape can be read with the "shape" method, by accessing the first element in the 4D array. The shape is 32x32x3 (3 channels). For the number of classes, I took the labels in the training set, removed all duplicates and counted the elements, which resulted in 43 classes.
+* **Design, train and test a model architecture**
+
 * Use the model to make predictions on new images
 * Analyze the softmax probabilities of the new images
 * Summarize the results with a written report
