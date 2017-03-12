@@ -7,12 +7,9 @@
 **Build a Traffic Sign Recognition Project**
 
 The goals / steps of this project are the following:
-* **Load the data set (see below for links to the project data set)**
-I downloaded the zipped data and unpacked it. The paths to the training, validation and test sets were set relatively.
-* **Explore, summarize and visualize the data set**
-The length of the training and test data was determined by the length of the 4D arrays (1st dimension). The image shape can be read with the "shape" method, by accessing the first element in the 4D array. The shape is 32x32x3 (3 channels). For the number of classes, I took the labels in the training set, removed all duplicates and counted the elements, which resulted in 43 classes.
-* **Design, train and test a model architecture**
-
+* Load the data set (see below for links to the project data set)
+* Explore, summarize and visualize the data set
+* Design, train and test a model architecture
 * Use the model to make predictions on new images
 * Analyze the softmax probabilities of the new images
 * Summarize the results with a written report
@@ -37,43 +34,46 @@ The length of the training and test data was determined by the length of the 4D 
 
 ####1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
 
-You're reading it! and here is a link to my [project code](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
+You're reading it! and here is a link to my [project code](https://github.com/mwolfram/CarND-Traffic-Sign-Classifier-Project-mwolfram/blob/master/Traffic_Sign_Classifier.ipynb)
+
+###Toolkit implementation at beginning of notebook
+
+I implemented some helpers and convenience functions at the beginning of the jupyter notebook, so I can easily reload them, without actually running any calculations
 
 ###Data Set Summary & Exploration
 
 ####1. Provide a basic summary of the data set and identify where in your code the summary was done. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
 
-The code for this step is contained in the second code cell of the IPython notebook.  
-
-I used the pandas library to calculate summary statistics of the traffic
+I used standard python to calculate summary statistics of the traffic
 signs data set:
 
-* The size of training set is ?
-* The size of test set is ?
-* The shape of a traffic sign image is ?
-* The number of unique classes/labels in the data set is ?
+* The size of training set is 34799
+* The size of test set is 12630
+* The shape of a traffic sign image is 32x32x3 (3 color channels)
+* The number of unique classes/labels in the data set is ? 43
 
 ####2. Include an exploratory visualization of the dataset and identify where the code is in your code file.
 
-The code for this step is contained in the third code cell of the IPython notebook.  
+The code for this step is contained below the label "Provide a Basic Summary of the Data Set Using Python, Numpy and/or Pandas" in the IPython notebook.  
 
-Here is an exploratory visualization of the data set. It is a bar chart showing how the data ...
+Here is an exploratory visualization of the data set. It is a chart showing the number of occurrences of each sign:
 
-![alt text][image1]
+![sign occurrences][./writeup_images/sign_occurrences.png]
 
 ###Design and Test a Model Architecture
 
 ####1. Describe how, and identify where in your code, you preprocessed the image data. What tecniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc.
+                                                                  
+The code for this step is contained at the beginning of the IPython notebook, in the toolkit section. I apply the "preprocess" function to all datasets I use.
 
-The code for this step is contained in the fourth code cell of the IPython notebook.
-
-As a first step, I decided to convert the images to grayscale because ...
+As a first step, I decided to convert the images to grayscale (rgb2gray) just to see the difference. Also the images were always normalized. As shown in class, it is important to keep values low and the median around zero.
 
 Here is an example of a traffic sign image before and after grayscaling.
 
-![alt text][image2]
+![rgb sample][./writeup_images/sample_rgb.png]
+![rgb sample][./writeup_images/sample_grey.png]
 
-As a last step, I normalized the image data because ...
+------------> CONTINUE HERE, describe why greyscale was removed
 
 ####2. Describe how, and identify where in your code, you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
 
