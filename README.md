@@ -73,16 +73,15 @@ Here is an example of a traffic sign image before and after grayscaling.
 ![rgb sample][./writeup_images/sample_rgb.png]
 ![rgb sample][./writeup_images/sample_grey.png]
 
-------------> CONTINUE HERE, describe why greyscale was removed
+Later in the project, I removed the grayscaling step and instead enabled the LeNet architecture to learn the most effective preprocessing step on its own. This was done using a 1x1x10 filter followed by a 1x1x3 to get back to the original depth. These filters can be found at the beginnning of the LeNet function (filter1, filter2).
 
 ####2. Describe how, and identify where in your code, you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
 
-The code for splitting the data into training and validation sets is contained in the fifth code cell of the IPython notebook.  
+I used the data that was provided already. I did not use cross-validation. So the X_train set was used as a basis for all training data, and X_valid and X_test respectively. I did, however, shuffle my data before training. Interestingly, this had a huge impact on the result (under 1% accuracy before shuffling, over 80% after)
 
-To cross validate my model, I randomly split the training data into a training set and validation set. I did this by ...
+So my final training set still had 34799 images. My validation set and test set had 4410 and 12630 number of images.
 
-My final training set had X number of images. My validation set and test set had Y and Z number of images.
-
+TODO Augmentation
 The sixth code cell of the IPython notebook contains the code for augmenting the data set. I decided to generate additional data because ... To add more data to the the data set, I used the following techniques because ... 
 
 Here is an example of an original image and an augmented image:
