@@ -26,6 +26,8 @@ The goals / steps of this project are the following:
 [image7]: ./examples/placeholder.png "Traffic Sign 4"
 [image8]: ./examples/placeholder.png "Traffic Sign 5"
 
+
+
 ## Rubric Points
 ###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
 
@@ -136,7 +138,7 @@ My final model results were:
 
 * **What was the first architecture that was tried and why was it chosen?** The architecture chosen was LeNet, as it was said that it would yield fairly good results out of the box. The model had to be adapted to work with RGB images. Also, the number of logits had to be changed, as there are 43 different classes of traffic signs in the dataset, whereas in the MNIST dataset there are only 10.
 * **What were some problems with the initial architecture?** The initial architecture was working fine, however, when data was not shuffled, it would yield accuracies below 1% on validation. It's still unclear why this was the case. Shuffling the data during training immediately improved the accuaracy to values above 80%.
-* **How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to over fitting or under fitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.** A dropout layer was added as an experiment, which improved the accuracy. Also, instead of preprocessing the data (except normalization which is done in advance), two new filters were introduced that are designed to find out the preprocessing steps on their own. These ware the first two 1x1 filters in the model.
+* **How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to over fitting or under fitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.** A dropout layer was added as an experiment, which improved the accuracy. Also, instead of preprocessing the data (except normalization which is done in advance), two new filters were introduced that are designed to find out the preprocessing steps on their own. These were the first two 1x1 filters on top of the model.
 * **Which parameters were tuned? How were they adjusted and why?** TBA
 * **What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?** A dropout layer was added to reduce overfitting TBA
 
@@ -144,12 +146,18 @@ My final model results were:
 
 ####1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
-Here are five German traffic signs that I found on the web:
+Here are eight German traffic signs that I found on the web:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
-
-The first image might be difficult to classify because ...
+| Image Label         		|     Image	        					| Notes |
+|:---------------------:|:---------------------------------------------:|:---------------------------:|
+| Speed Limit 30 (1)    | ![1_speed_limit_30](./signs_small/1_speed_limit_30_32x32.png) | |
+| Speed Limit 30 (2)    | ![1_speed_limit_30_2](./signs_small/1_speed_limit_30_2_32x32.png) | |
+| Speed Limit 80        | ![5_speed_limit_80](./signs_small/5_speed_limit_80_32x32.PNG) | |
+| No Passing            | ![9_no_passing](./signs_small/9_no_passing_32x32.PNG) | |
+| Stop                  | ![14_stop](./signs_small/14_stop_32x32.PNG) | |
+| No Entry              | ![17_no_entry](./signs_small/17_no_entry_32x32.PNG) | | 
+| Ahead only            | ![35_ahead_only](./signs_small/35_ahead_only_32x32.PNG) | | 
+| Go straight or right  | ![36_go_straight_or_right](./signs_small/36_go_straight_or_right_32x32.PNG) | | 
 
 ####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
