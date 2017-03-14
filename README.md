@@ -69,16 +69,6 @@ I used the data that was provided already. I did not use cross-validation. So th
 
 So my final training set still had 34799 images. My validation set and test set had 4410 and 12630 number of images.
 
-TODO Augmentation
-The sixth code cell of the IPython notebook contains the code for augmenting the data set. I decided to generate additional data because ... To add more data to the the data set, I used the following techniques because ... 
-
-Here is an example of an original image and an augmented image:
-
-![alt text][image3]
-
-The difference between the original data set and the augmented data set is the following ... 
-
-
 #### 3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
 The code for my final model is located in the jupyter notebook below the label "Model Architecture", in the LeNet function. 
@@ -118,9 +108,9 @@ To train the model, I used an AdamOptimizer. The labels were one-hot encoded usi
 The code for calculating the accuracy of the model is located in the same cell as the model itself, in the "evaluate" function. 
 
 My final model results were:
-* training set accuracy of ?
+* training set accuracy of 0.999
 * validation set accuracy of 0.951
-* test set accuracy of 0.933
+* test set accuracy of 0.934
 
 * **What was the first architecture that was tried and why was it chosen?** The architecture chosen was LeNet, as it was said that it would yield fairly good results out of the box. The model had to be adapted to work with RGB images. Also, the number of logits had to be changed, as there are 43 different classes of traffic signs in the dataset, whereas in the MNIST dataset there are only 10.
 * **What were some problems with the initial architecture?** The initial architecture was working fine, however, when data was not shuffled, it would yield accuracies below 1% on validation. It's still unclear why this was the case. Shuffling the data during training immediately improved the accuaracy to values above 80%.
@@ -149,21 +139,36 @@ Here are eight German traffic signs that I found on the web. Most of the images 
 
 The code for making predictions on my final model is below the caption "Predict the Sign Type for Each Image" in the jupyter notebook. The accuracy was calculated one cell below.
 
-All signs were recalled correctly, so the accuracy is at 100%, which is surprising in comparison with a test set accuracy of 93.3%. This might be because of the good lighting conditions in all of the images.
+All signs were recalled correctly, so the accuracy is at 100%, which is surprising in comparison with the accuracy on the provided test set. This might be because of the good lighting conditions in all of the images.
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
 The code for calculating the softmax probabilities is located below the label "Output Top 5 Softmax Probabilities For Each Image Found on the Web" in the jupyter notebook.
 
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+The model was almost 100% sure about all images, except one (the second 30km/h limit sign). Even that one was classified correctly, but only with a probability of 39.3%, closely followed by the labels 42 (End of no passing by vehicles over 3.5 metric tons) and 6 (End of speed limit (80km/h))
 
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
+The following bar charts show the top 5 softmax probabilites for each image
 
+![top5_0](./writeup_images/top5_0.png)
+*Speed Limit 30 (1)*
 
-For the second image ... 
+![top5_1](./writeup_images/top5_1.png)
+*Speed Limit 30 (2)*
+
+![top5_2](./writeup_images/top5_2.png)
+*Speed Limit 80* 
+
+![top5_3](./writeup_images/top5_3.png)
+*No Passing*
+
+![top5_4](./writeup_images/top5_4.png)
+*Stop*
+
+![top5_5](./writeup_images/top5_5.png)
+*No Entry*
+
+![top5_6](./writeup_images/top5_6.png)
+*Ahead only*
+
+![top5_7](./writeup_images/top5_7.png)
+*Go straight or right*
