@@ -1,6 +1,6 @@
-#**Traffic Sign Recognition** 
+# **Traffic Sign Recognition** 
 
-##Writeup
+## Writeup
 
 ---
 
@@ -14,37 +14,23 @@ The goals / steps of this project are the following:
 * Analyze the softmax probabilities of the new images
 * Summarize the results with a written report
 
-
-[//]: # (Image References)
-
-[image1]: ./examples/visualization.jpg "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
-
-
-
 ## Rubric Points
-###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
+### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
 
 ---
-###Writeup / README
+### Writeup / README
 
-####1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
+#### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
 
 You're reading it! and here is a link to my [project code](https://github.com/mwolfram/CarND-Traffic-Sign-Classifier-Project-mwolfram/blob/master/Traffic_Sign_Classifier.ipynb)
 
-###Toolkit implementation at beginning of notebook
+### Toolkit implementation at beginning of notebook
 
 I implemented some helpers and convenience functions at the beginning of the jupyter notebook, so I can easily reload them, without actually running any calculations
 
-###Data Set Summary & Exploration
+### Data Set Summary & Exploration
 
-####1. Provide a basic summary of the data set and identify where in your code the summary was done. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
+#### 1. Provide a basic summary of the data set and identify where in your code the summary was done. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
 
 I used standard python to calculate summary statistics of the traffic
 signs data set:
@@ -54,17 +40,17 @@ signs data set:
 * The shape of a traffic sign image is 32x32x3 (3 color channels)
 * The number of unique classes/labels in the data set is ? 43
 
-####2. Include an exploratory visualization of the dataset and identify where the code is in your code file.
+#### 2. Include an exploratory visualization of the dataset and identify where the code is in your code file.
 
-The code for this step is contained below the label "Provide a Basic Summary of the Data Set Using Python, Numpy and/or Pandas" in the IPython notebook.  
+The code for this step is contained below the label "Provide a Basic Summary of the Data Set Using Python, Numpy and/or Pandas" in the jupyter notebook.  
 
 Here is an exploratory visualization of the data set. It is a chart showing the number of occurrences of each sign:
 
-![sign occurrences][./writeup_images/sign_occurrences.png]
+![sign occurrences](./writeup_images/sign_occurrences.png)
 
-###Design and Test a Model Architecture
+### Design and Test a Model Architecture
 
-####1. Describe how, and identify where in your code, you preprocessed the image data. What tecniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc.
+#### 1. Describe how, and identify where in your code, you preprocessed the image data. What tecniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc.
                                                                   
 The code for this step is contained at the beginning of the jupyter notebook, in the toolkit section. I apply the "preprocess" function to all datasets I use.
 
@@ -72,12 +58,12 @@ As a first step, I decided to convert the images to grayscale (rgb2gray) just to
 
 Here is an example of a traffic sign image before and after grayscaling.
 
-![rgb sample][./writeup_images/sample_rgb.png]
-![rgb sample][./writeup_images/sample_grey.png]
+![rgb sample](./writeup_images/sample_rgb.png)
+![rgb sample](./writeup_images/sample_grey.png)
 
 Later in the project, I removed the grayscaling step and instead enabled the LeNet architecture to learn the most effective preprocessing step on its own. This was done using a 1x1x10 filter followed by a 1x1x3 to get back to the original depth. These filters can be found at the beginnning of the LeNet function (filter1, filter2).
 
-####2. Describe how, and identify where in your code, you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
+#### 2. Describe how, and identify where in your code, you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
 
 I used the data that was provided already. I did not use cross-validation. So the X_train set was used as a basis for all training data, and X_valid and X_test respectively. I did, however, shuffle my data before training. Interestingly, this had a huge impact on the result (under 1% accuracy before shuffling, over 80% after)
 
@@ -93,7 +79,7 @@ Here is an example of an original image and an augmented image:
 The difference between the original data set and the augmented data set is the following ... 
 
 
-####3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
+#### 3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
 The code for my final model is located in the jupyter notebook below the label "Model Architecture", in the LeNet function. 
 
@@ -121,13 +107,13 @@ My final model consisted of the following layers:
 | Softmax				|         									|
 
 
-####4. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
+#### 4. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
 The code for training the model is located in the same cell as the model itself.
 
-To train the model, I used an AdamOptimizer. The labels were one-hot encoded using tensorflow's internal module tf.one_hot. Cross entropy was used as the loss function. The model was trained in 15 epochs, with a batch size of 50. These hyperparameters can be set on top of the jupyter notebook. The learning rate was 0.001.
+To train the model, I used an AdamOptimizer. The labels were one-hot encoded using tensorflow's internal module tf.one_hot. Cross entropy was used as the loss function. The model was trained in 30 epochs, with a batch size of 50. These hyperparameters can be set on top of the jupyter notebook. The learning rate was 0.001.
 
-####5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
+#### 5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 The code for calculating the accuracy of the model is located in the same cell as the model itself, in the "evaluate" function. 
 
@@ -139,35 +125,35 @@ My final model results were:
 * **What was the first architecture that was tried and why was it chosen?** The architecture chosen was LeNet, as it was said that it would yield fairly good results out of the box. The model had to be adapted to work with RGB images. Also, the number of logits had to be changed, as there are 43 different classes of traffic signs in the dataset, whereas in the MNIST dataset there are only 10.
 * **What were some problems with the initial architecture?** The initial architecture was working fine, however, when data was not shuffled, it would yield accuracies below 1% on validation. It's still unclear why this was the case. Shuffling the data during training immediately improved the accuaracy to values above 80%.
 * **How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to over fitting or under fitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.** A dropout layer was added as an experiment, which improved the accuracy. Also, instead of preprocessing the data (except normalization which is done in advance), two new filters were introduced that are designed to find out the preprocessing steps on their own. These were the first two 1x1 filters on top of the model.
-* **Which parameters were tuned? How were they adjusted and why?** TBA
-* **What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?** A dropout layer was added to reduce overfitting TBA
+* **Which parameters were tuned? How were they adjusted and why?** The original parameters turned out to perform really well. I tried changing the batch size, but that did not improve the result. Even worse, with a batch size of 2048, I ended up below 6% accuracy. Increasing the number of epochs to more than 30 seems unnecessary, as there is no significant improvement on validation and testing accuracy (tried with 200 epochs, accuracy gets stuck around 100% for training and 96% validation. For the test set, that was 94.3%). I tried different activation functions: Sigmoid did not work out at all (accuracy below 6%), and RELU6 yielded similar results as RELU.
+* **What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?** A dropout layer was added between the two fully connected layers to avoid overfitting.
 
-###Test a Model on New Images
+### Test a Model on New Images
 
-####1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
+#### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
-Here are eight German traffic signs that I found on the web:
+Here are eight German traffic signs that I found on the web. Most of the images are well lit and therefore probably easy to classify. Some images are a bit distorted.
 
 | Image Label         		|     Image	        					| Notes |
 |:---------------------:|:---------------------------------------------:|:---------------------------:|
-| Speed Limit 30 (1)    | ![1_speed_limit_30](./signs_small/1_speed_limit_30_32x32.png) | |
-| Speed Limit 30 (2)    | ![1_speed_limit_30_2](./signs_small/1_speed_limit_30_2_32x32.png) | |
-| Speed Limit 80        | ![5_speed_limit_80](./signs_small/5_speed_limit_80_32x32.PNG) | |
-| No Passing            | ![9_no_passing](./signs_small/9_no_passing_32x32.PNG) | |
-| Stop                  | ![14_stop](./signs_small/14_stop_32x32.PNG) | |
-| No Entry              | ![17_no_entry](./signs_small/17_no_entry_32x32.PNG) | | 
-| Ahead only            | ![35_ahead_only](./signs_small/35_ahead_only_32x32.PNG) | | 
-| Go straight or right  | ![36_go_straight_or_right](./signs_small/36_go_straight_or_right_32x32.PNG) | | 
+| Speed Limit 30 (1)    | ![1_speed_limit_30](./signs_small/1_speed_limit_30_32x32.png) | well lit, frontal image |
+| Speed Limit 30 (2)    | ![1_speed_limit_30_2](./signs_small/1_speed_limit_30_2_32x32.png) | slight distortion, well lit, well distinguishable from background |
+| Speed Limit 80        | ![5_speed_limit_80](./signs_small/5_speed_limit_80_32x32.PNG) | distorted (perspective) |
+| No Passing            | ![9_no_passing](./signs_small/9_no_passing_32x32.PNG) | distorted (perspective) |
+| Stop                  | ![14_stop](./signs_small/14_stop_32x32.PNG) | distorted and slightly rotated - from a perspective point of view probably one of the more difficult cases |
+| No Entry              | ![17_no_entry](./signs_small/17_no_entry_32x32.PNG) | quite dark, distorted | 
+| Ahead only            | ![35_ahead_only](./signs_small/35_ahead_only_32x32.PNG) | good quality, well lit | 
+| Go straight or right  | ![36_go_straight_or_right](./signs_small/36_go_straight_or_right_32x32.PNG) | rotated ccw, traces of other traffic sign in image| 
 
-####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+#### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
 The code for making predictions on my final model is below the caption "Predict the Sign Type for Each Image" in the jupyter notebook. The accuracy was calculated one cell below.
 
 All signs were recalled correctly, so the accuracy is at 100%, which is surprising in comparison with a test set accuracy of 93.3%. This might be because of the good lighting conditions in all of the images.
 
-####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
+#### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
+The code for calculating the softmax probabilities is located below the label "Output Top 5 Softmax Probabilities For Each Image Found on the Web" in the jupyter notebook.
 
 For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
 
