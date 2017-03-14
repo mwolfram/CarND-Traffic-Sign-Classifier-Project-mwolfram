@@ -155,15 +155,15 @@ All signs were recalled correctly, so the accuracy is at 100%, which is surprisi
 
 The code for calculating the softmax probabilities is located below the label "Output Top 5 Softmax Probabilities For Each Image Found on the Web" in the jupyter notebook.
 
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+The model was almost 100% sure about all images, except one (the second 30km/h limit sign). Even that one was classified correctly, but only with a probability of 39.3%, closely followed by the labels 42 (End of no passing by vehicles over 3.5 metric tons) and 6 (End of speed limit (80km/h))
 
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
+The following bar charts show the top 5 softmax probabilites for each image
 
-
-For the second image ... 
+![top5_0](./writeup_images/top5_0.png)
+![top5_1](./writeup_images/top5_1.png)
+![top5_2](./writeup_images/top5_2.png)
+![top5_3](./writeup_images/top5_3.png)
+![top5_4](./writeup_images/top5_4.png)
+![top5_5](./writeup_images/top5_5.png)
+![top5_6](./writeup_images/top5_6.png)
+![top5_7](./writeup_images/top5_7.png)
