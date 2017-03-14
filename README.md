@@ -139,7 +139,7 @@ Here are eight German traffic signs that I found on the web. Most of the images 
 
 The code for making predictions on my final model is below the caption "Predict the Sign Type for Each Image" in the jupyter notebook. The accuracy was calculated one cell below.
 
-All signs were recalled correctly, so the accuracy is at 100%, which is surprising in comparison with a test set accuracy of 93.3%. This might be because of the good lighting conditions in all of the images.
+All signs were recalled correctly, so the accuracy is at 100%, which is surprising in comparison with the accuracy on the provided test set. This might be because of the good lighting conditions in all of the images.
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
