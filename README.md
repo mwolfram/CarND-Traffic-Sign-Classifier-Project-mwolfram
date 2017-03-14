@@ -160,10 +160,25 @@ The model was almost 100% sure about all images, except one (the second 30km/h l
 The following bar charts show the top 5 softmax probabilites for each image
 
 ![top5_0](./writeup_images/top5_0.png)
+*Speed Limit 30 (1)*
+
 ![top5_1](./writeup_images/top5_1.png)
+*Speed Limit 30 (2)*
+
 ![top5_2](./writeup_images/top5_2.png)
+*Speed Limit 80* 
+
 ![top5_3](./writeup_images/top5_3.png)
+*No Passing*
+
 ![top5_4](./writeup_images/top5_4.png)
+*Stop*
+
 ![top5_5](./writeup_images/top5_5.png)
+*No Entry*
+
 ![top5_6](./writeup_images/top5_6.png)
+*Ahead only*
+
 ![top5_7](./writeup_images/top5_7.png)
+*Go straight or right*
