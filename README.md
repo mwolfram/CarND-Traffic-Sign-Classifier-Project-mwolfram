@@ -69,16 +69,6 @@ I used the data that was provided already. I did not use cross-validation. So th
 
 So my final training set still had 34799 images. My validation set and test set had 4410 and 12630 number of images.
 
-TODO Augmentation
-The sixth code cell of the IPython notebook contains the code for augmenting the data set. I decided to generate additional data because ... To add more data to the the data set, I used the following techniques because ... 
-
-Here is an example of an original image and an augmented image:
-
-![alt text][image3]
-
-The difference between the original data set and the augmented data set is the following ... 
-
-
 #### 3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
 The code for my final model is located in the jupyter notebook below the label "Model Architecture", in the LeNet function. 
@@ -118,9 +108,9 @@ To train the model, I used an AdamOptimizer. The labels were one-hot encoded usi
 The code for calculating the accuracy of the model is located in the same cell as the model itself, in the "evaluate" function. 
 
 My final model results were:
-* training set accuracy of ?
+* training set accuracy of 0.999
 * validation set accuracy of 0.951
-* test set accuracy of 0.933
+* test set accuracy of 0.934
 
 * **What was the first architecture that was tried and why was it chosen?** The architecture chosen was LeNet, as it was said that it would yield fairly good results out of the box. The model had to be adapted to work with RGB images. Also, the number of logits had to be changed, as there are 43 different classes of traffic signs in the dataset, whereas in the MNIST dataset there are only 10.
 * **What were some problems with the initial architecture?** The initial architecture was working fine, however, when data was not shuffled, it would yield accuracies below 1% on validation. It's still unclear why this was the case. Shuffling the data during training immediately improved the accuaracy to values above 80%.
