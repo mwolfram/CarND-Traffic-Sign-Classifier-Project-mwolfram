@@ -172,3 +172,27 @@ The following bar charts show the top 5 softmax probabilites for each image
 
 ![top5_7](./writeup_images/top5_7.png)
 *Go straight or right*
+
+### Visualize the Neural Network's State with Test Images
+
+#### 1. Usage
+
+* Run all blocks below step 4
+* Choose an image to run through the NN (choose from one of the 8 new images)
+* The blocks below allow you to print all NN variables and to output feature map of layers Relu_1, Relu_2 and Relu_3
+
+#### 2. Findings
+
+It is particularly interesting to see how the network reacts to the "No Entry" sign, especially its horizontal bar (see images below). A similar feature can be observed for the "No Passing" sign, however in a less obvious form. The "Ahead Only" feature map shows traces of the upwards pointing arrow. An example where the features are not so intuitive is the "Stop" sign (last image)
+
+![no_entry_activation.png](./writeup_images/no_entry_activation.png)
+*No Entry*
+
+![no_passing_activation.png](./writeup_images/no_passing_activation.png)
+*No Passing*
+
+![ahead_only_activation.png](./writeup_images/ahead_only_activation.png)
+*Ahead Only* 
+
+![stop_activation.png](./writeup_images/stop_activation.png)
+*Stop*
