@@ -1,0 +1,6 @@
+model_checkpoint_path: "exp3_after_epoch_30"
+all_model_checkpoint_paths: "exp3_after_epoch_26"
+all_model_checkpoint_paths: "exp3_after_epoch_27"
+all_model_checkpoint_paths: "exp3_after_epoch_28"
+all_model_checkpoint_paths: "exp3_after_epoch_29"
+all_model_checkpoint_paths: "exp3_after_epoch_30"
